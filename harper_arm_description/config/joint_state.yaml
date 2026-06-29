@@ -1,0 +1,19 @@
+# Joint configuration for joint_state_publisher_gui
+
+joint_state_publisher:
+  ros__parameters:
+    # Joint names and default positions
+    zeros:
+      elbow_flexion_joint: 0.0
+      forearm_rotation_joint: 0.0
+      shoulder_abduction_joint: 0.0
+      shoulder_flexion_joint: 0.0
+      shoulder_rotation_joint: 0.0
+
+    # Joints to publish
+    source_list:
+      - elbow_flexion_joint
+      - forearm_rotation_joint
+      - shoulder_abduction_joint
+      - shoulder_flexion_joint
+      - shoulder_rotation_joint

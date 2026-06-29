@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="harper_arm">
+
+  <!-- Materials (shared across all assemblies) -->
+  <material name="ABS_Plastic">
+    <color rgba="0.965 0.965 0.953 1.0"/>
+  </material>
+
+  <!-- Assembly includes -->
+  <xacro:include filename="$(find harper_arm_description)/urdf/assemblies/harper_arm.urdf.xacro"/>
+
+  <!-- Instantiate assemblies -->
+  <xacro:harper_arm prefix=""/>
+
+</robot>
