@@ -2,8 +2,8 @@
 Launch file for harper_arm.
 
 Usage:
-    ros2 launch harper_arm_description display.launch.py
-    ros2 launch harper_arm_description display.launch.py namespace:=robot1
+    ros2 launch harper_description display.launch.py
+    ros2 launch harper_description display.launch.py namespace:=robot1
 """
 
 import os
@@ -16,7 +16,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_dir = get_package_share_directory('harper_arm_description')
+    pkg_dir = get_package_share_directory('harper_description')
 
     xacro_file = os.path.join(pkg_dir, 'urdf', 'harper_arm.urdf.xacro')
     rviz_file = os.path.join(pkg_dir, 'rviz', 'display.rviz')

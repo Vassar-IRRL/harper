@@ -7,7 +7,7 @@
   </material>
 
   <!-- Assembly includes -->
-  <xacro:include filename="$(find harper_arm_description)/urdf/assemblies/harper_arm.urdf.xacro"/>
+  <xacro:include filename="$(find harper_description)/urdf/assemblies/harper_arm.urdf.xacro"/>
 
   <!-- Instantiate assemblies -->
   <xacro:harper_arm prefix=""/>

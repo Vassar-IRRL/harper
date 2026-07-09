@@ -14,14 +14,14 @@
       <visual>
         <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/base_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/base_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/base_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/base_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>
@@ -36,14 +36,14 @@
       <visual>
         <origin xyz="-0.127800 0.002450 -0.136700" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/ubracket_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/ubracket_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="-0.127800 0.002450 -0.136700" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/ubracket_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/ubracket_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>
@@ -58,14 +58,14 @@
       <visual>
         <origin xyz="-0.093300 0.039250 -0.136700" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/abduction_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/abduction_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="-0.093300 0.039250 -0.136700" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/abduction_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/abduction_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>
@@ -80,14 +80,14 @@
       <visual>
         <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/shoulder_rot_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/shoulder_rot_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/shoulder_rot_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/shoulder_rot_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>
@@ -102,14 +102,14 @@
       <visual>
         <origin xyz="0.041000 0.152500 -0.012500" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/elbow_forearm_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/elbow_forearm_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="0.041000 0.152500 -0.012500" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/elbow_forearm_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/elbow_forearm_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>
@@ -124,14 +124,14 @@
       <visual>
         <origin xyz="-0.161425 -0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/forearm_front_link.dae" scale="1 1 1"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/forearm_front_link.dae" scale="1 1 1"/>
         </geometry>
         <material name="ABS_Plastic"/>
       </visual>
       <collision>
         <origin xyz="-0.161425 -0.000000 0.000000" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://harper_arm_description/meshes/harper_arm/forearm_front_link_collision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://harper_description/meshes/harper_arm/forearm_front_link_collision.stl" scale="0.01 0.01 0.01"/>
         </geometry>
       </collision>
     </link>

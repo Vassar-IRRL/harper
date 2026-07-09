@@ -3,7 +3,7 @@
 
 metadata:
   design_name: harper_arm
-  package_name: harper_arm_description
+  package_name: harper_description
   exporter_version: '3.0.0'
   total_mass_kg: 1.6148
   link_count: 6
