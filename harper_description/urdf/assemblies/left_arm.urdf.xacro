@@ -1,0 +1,906 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="left_arm_macro">
+
+  <xacro:macro name="left_arm" params="prefix">
+
+    <!-- Links -->
+    <link name="${prefix}left_shd_fex_link">
+      <inertial>
+        <origin xyz="0.029672 0.017838 0.030522" rpy="0 0 0"/>
+        <mass value="0.845333"/>
+        <inertia ixx="3.656703e-04" ixy="3.442557e-06" ixz="-1.214020e-06"
+                 iyy="4.788453e-04" iyz="3.975679e-05" izz="5.335737e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_fex_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_fex_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_shd_ubk_link">
+      <inertial>
+        <origin xyz="-0.001692 -0.016243 0.000000" rpy="0 0 0"/>
+        <mass value="0.058945"/>
+        <inertia ixx="2.875281e-05" ixy="-2.049682e-06" ixz="1.113751e-13"
+                 iyy="5.333175e-05" iyz="-1.610522e-13" izz="6.087625e-05"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.127800 0.002450 -0.136700" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_ubk_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.127800 0.002450 -0.136700" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_ubk_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_shd_aad_link">
+      <inertial>
+        <origin xyz="0.024728 0.000017 -0.016416" rpy="0 0 0"/>
+        <mass value="0.741690"/>
+        <inertia ixx="3.328065e-04" ixy="-1.091855e-07" ixz="1.199569e-05"
+                 iyy="4.046210e-04" iyz="3.819490e-07" izz="2.206534e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.098600 0.039250 -0.136700" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_aad_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.098600 0.039250 -0.136700" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_aad_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_shd_rot_link">
+      <inertial>
+        <origin xyz="0.007529 0.000340 -0.022744" rpy="0 0 0"/>
+        <mass value="0.452916"/>
+        <inertia ixx="1.475868e-04" ixy="1.268389e-06" ixz="-1.692796e-05"
+                 iyy="2.217147e-04" iyz="1.345875e-06" izz="2.038731e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.129550 0.040250 -0.081950" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_rot_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.129550 0.040250 -0.081950" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_shd_rot_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_elb_upp_link">
+      <inertial>
+        <origin xyz="0.011592 -0.066505 0.004958" rpy="0 0 0"/>
+        <mass value="0.606760"/>
+        <inertia ixx="6.246759e-04" ixy="9.157290e-05" ixz="-2.191708e-05"
+                 iyy="4.115095e-04" iyz="4.861900e-05" izz="7.846717e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_elb_upp_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_elb_upp_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_elb_low_link">
+      <inertial>
+        <origin xyz="0.036016 -0.005390 0.017688" rpy="0 0 0"/>
+        <mass value="0.267308"/>
+        <inertia ixx="3.770811e-04" ixy="-1.334814e-07" ixz="6.174085e-08"
+                 iyy="3.889083e-04" iyz="-2.892434e-05" izz="2.533474e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.036000 0.152500 -0.012500" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_elb_low_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.036000 0.152500 -0.012500" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_elb_low_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_fam_rot_link">
+      <inertial>
+        <origin xyz="0.208654 0.004552 -0.001199" rpy="0 0 0"/>
+        <mass value="0.471550"/>
+        <inertia ixx="1.704912e-04" ixy="-9.611618e-06" ixz="2.780708e-06"
+                 iyy="1.961069e-04" iyz="-2.959480e-06" izz="2.385460e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_fam_rot_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_fam_rot_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_wrs_upp_link">
+      <inertial>
+        <origin xyz="-0.000485 0.034075 -0.000023" rpy="0 0 0"/>
+        <mass value="0.393034"/>
+        <inertia ixx="1.399327e-04" ixy="9.958148e-07" ixz="-3.060640e-08"
+                 iyy="8.085711e-05" iyz="3.706204e-08" izz="1.515202e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.151216 0.060400 -0.014518" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_wrs_upp_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Steel"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.151216 0.060400 -0.014518" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_wrs_upp_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_wrs_low_link">
+      <inertial>
+        <origin xyz="0.018019 -0.000000 -0.017829" rpy="0 0 0"/>
+        <mass value="0.013952"/>
+        <inertia ixx="2.789670e-06" ixy="-2.309351e-17" ixz="3.202830e-07"
+                 iyy="6.858930e-06" iyz="9.194034e-17" izz="5.819951e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.099461 0.489218 0.332563" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_wrs_low_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.099461 0.489218 0.332563" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_wrs_low_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_plm_link">
+      <inertial>
+        <origin xyz="0.207483 -0.000844 0.012891" rpy="0 0 0"/>
+        <mass value="0.689202"/>
+        <inertia ixx="4.022895e-04" ixy="-2.874239e-05" ixz="1.959780e-05"
+                 iyy="2.817125e-04" iyz="-1.799072e-05" izz="5.726686e-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_plm_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Steel"/>
+      </visual>
+      <collision>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_plm_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_thb_mip_link">
+      <inertial>
+        <origin xyz="0.000037 -0.002989 0.014826" rpy="0 0 0"/>
+        <mass value="0.014001"/>
+        <inertia ixx="1.497834e-06" ixy="-1.184784e-09" ixz="-2.914940e-08"
+                 iyy="1.699376e-06" iyz="-4.807453e-08" izz="1.096217e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.034146 0.021982 -0.001493" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_thb_mip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.034146 0.021982 -0.001493" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_thb_mip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_ind_mip_link">
+      <inertial>
+        <origin xyz="-0.000004 -0.004497 0.019147" rpy="0 0 0"/>
+        <mass value="0.014534"/>
+        <inertia ixx="2.133054e-06" ixy="1.144574e-08" ixz="-3.753588e-08"
+                 iyy="1.839188e-06" iyz="-6.203136e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.006373 0.019054 -0.000788" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_mip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.006373 0.019054 -0.000788" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_mip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_mid_mip_link">
+      <inertial>
+        <origin xyz="0.000052 -0.004411 0.020926" rpy="0 0 0"/>
+        <mass value="0.015491"/>
+        <inertia ixx="2.557012e-06" ixy="-7.190002e-10" ixz="-1.411528e-08"
+                 iyy="2.245838e-06" iyz="-7.453491e-08" izz="1.030054e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.016386 0.020922 -0.000770" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_mip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.016386 0.020922 -0.000770" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_mip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_rng_mip_link">
+      <inertial>
+        <origin xyz="-0.000026 -0.004417 0.019899" rpy="0 0 0"/>
+        <mass value="0.012875"/>
+        <inertia ixx="1.956035e-06" ixy="-3.402887e-10" ixz="-1.846997e-08"
+                 iyy="1.744192e-06" iyz="-3.631487e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.038882 0.021936 -0.000751" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_mip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.038882 0.021936 -0.000751" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_mip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_pnk_mip_link">
+      <inertial>
+        <origin xyz="0.000168 -0.004177 0.015676" rpy="0 0 0"/>
+        <mass value="0.009396"/>
+        <inertia ixx="1.036512e-06" ixy="1.810997e-08" ixz="-1.375956e-09"
+                 iyy="1.000000e-06" iyz="-6.026527e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.060175 0.022309 -0.000815" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_mip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.060175 0.022309 -0.000815" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_mip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_thb_ip_link">
+      <inertial>
+        <origin xyz="-0.002391 -0.004769 0.012274" rpy="0 0 0"/>
+        <mass value="0.008473"/>
+        <inertia ixx="1.000000e-06" ixy="3.220812e-09" ixz="-1.283854e-08"
+                 iyy="1.000000e-06" iyz="7.299486e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.029766 -0.033003 -0.000972" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_thb_ip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.029766 -0.033003 -0.000972" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_thb_ip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_ind_pip_link">
+      <inertial>
+        <origin xyz="0.000002 -0.003016 -0.011825" rpy="0 0 0"/>
+        <mass value="0.006319"/>
+        <inertia ixx="1.000000e-06" ixy="7.902947e-10" ixz="-1.225982e-08"
+                 iyy="1.000000e-06" iyz="-7.309719e-09" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.006045 -0.007487 -0.023772" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_pip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.006045 -0.007487 -0.023772" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_pip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_mid_pip_link">
+      <inertial>
+        <origin xyz="-0.000014 -0.004615 0.011833" rpy="0 0 0"/>
+        <mass value="0.007683"/>
+        <inertia ixx="1.000000e-06" ixy="7.656627e-10" ixz="-1.424454e-08"
+                 iyy="1.000000e-06" iyz="-7.609046e-09" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.015931 -0.007785 -0.001626" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_pip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.015931 -0.007785 -0.001626" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_pip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_rng_pip_link">
+      <inertial>
+        <origin xyz="-0.000999 -0.003966 0.011471" rpy="0 0 0"/>
+        <mass value="0.006684"/>
+        <inertia ixx="1.000000e-06" ixy="6.798552e-10" ixz="-1.217085e-08"
+                 iyy="1.000000e-06" iyz="-1.009502e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.039338 -0.008097 -0.001194" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_pip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.039338 -0.008097 -0.001194" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_pip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_pnk_pip_link">
+      <inertial>
+        <origin xyz="0.000016 -0.003703 0.008416" rpy="0 0 0"/>
+        <mass value="0.003318"/>
+        <inertia ixx="1.000000e-06" ixy="5.294559e-10" ixz="-5.655726e-09"
+                 iyy="1.000000e-06" iyz="-2.435105e-09" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.059924 -0.008014 -0.001141" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_pip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.059924 -0.008014 -0.001141" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_pip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_ind_dip_link">
+      <inertial>
+        <origin xyz="-0.000148 -0.003330 0.010529" rpy="0 0 0"/>
+        <mass value="0.004569"/>
+        <inertia ixx="1.000000e-06" ixy="1.850180e-10" ixz="-5.130864e-09"
+                 iyy="1.000000e-06" iyz="1.654558e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.005517 -0.032210 -0.001229" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_dip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="0.005517 -0.032210 -0.001229" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_ind_dip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_mid_dip_link">
+      <inertial>
+        <origin xyz="-0.000126 -0.003170 0.012040" rpy="0 0 0"/>
+        <mass value="0.005368"/>
+        <inertia ixx="1.000000e-06" ixy="8.181024e-11" ixz="-6.128163e-09"
+                 iyy="1.000000e-06" iyz="2.146251e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.015864 -0.031487 -0.001229" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_dip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.015864 -0.031487 -0.001229" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_mid_dip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_rng_dip_link">
+      <inertial>
+        <origin xyz="-0.000145 -0.003176 0.011344" rpy="0 0 0"/>
+        <mass value="0.004682"/>
+        <inertia ixx="1.000000e-06" ixy="1.354234e-11" ixz="-5.737561e-09"
+                 iyy="1.000000e-06" iyz="1.655248e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.037645 -0.031400 -0.001277" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_dip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.037645 -0.031400 -0.001277" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_rng_dip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}left_pnk_dip_link">
+      <inertial>
+        <origin xyz="-0.000133 -0.003090 0.010398" rpy="0 0 0"/>
+        <mass value="0.003302"/>
+        <inertia ixx="1.000000e-06" ixy="-1.184337e-11" ixz="-3.259371e-09"
+                 iyy="1.000000e-06" iyz="1.132691e-08" izz="1.000000e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.059248 -0.030458 -0.001226" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_dip_link.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Elegoo_PAHT_CF"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.059248 -0.030458 -0.001226" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/left_arm/left_pnk_dip_link_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Joints (internal to assembly) -->
+    <joint name="${prefix}left_shd_fex_joint" type="revolute">
+      <parent link="${prefix}left_shd_fex_link"/>
+      <child link="${prefix}left_shd_ubk_link"/>
+      <origin xyz="0.044850 -0.007058 0.039776" rpy="-0.261799 -0.000000 -0.000000"/>
+      <axis xyz="0.000000 1.000000 -0.000000"/>
+      <limit lower="-1.221730" upper="3.490659" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_shd_aad_joint" type="revolute">
+      <parent link="${prefix}left_shd_ubk_link"/>
+      <child link="${prefix}left_shd_aad_link"/>
+      <origin xyz="-0.029550 -0.036800 -0.000000" rpy="0.000000 -0.000000 0.000000"/>
+      <axis xyz="-1.000000 0.000000 0.000000"/>
+      <limit lower="-0.261799" upper="3.141593" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_shd_rot_joint" type="revolute">
+      <parent link="${prefix}left_shd_aad_link"/>
+      <child link="${prefix}left_shd_rot_link"/>
+      <origin xyz="0.030950 -0.001000 -0.054750" rpy="-0.000000 -0.000000 0.000000"/>
+      <axis xyz="-0.000000 0.000000 -1.000000"/>
+      <limit lower="-2.356194" upper="2.356194" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_shd_elb_rigid" type="fixed">
+      <parent link="${prefix}left_shd_rot_link"/>
+      <child link="${prefix}left_elb_upp_link"/>
+      <origin xyz="-0.000000 0.001000 -0.049000" rpy="1.570796 0.000000 -1.570796"/>
+    </joint>
+
+    <joint name="${prefix}left_elb_fex_joint" type="revolute">
+      <parent link="${prefix}left_elb_upp_link"/>
+      <child link="${prefix}left_elb_low_link"/>
+      <origin xyz="-0.036100 -0.152500 0.012500" rpy="1.570796 0.000000 0.000000"/>
+      <axis xyz="-1.000000 -0.000000 -0.000000"/>
+      <limit lower="0.000000" upper="2.094395" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_elb_fam_rigid" type="fixed">
+      <parent link="${prefix}left_elb_low_link"/>
+      <child link="${prefix}left_fam_rot_link"/>
+      <origin xyz="0.036050 -0.001977 0.316413" rpy="-0.000000 1.570796 0.000000"/>
+    </joint>
+
+    <joint name="${prefix}left_fam_rot_joint" type="revolute">
+      <parent link="${prefix}left_fam_rot_link"/>
+      <child link="${prefix}left_wrs_upp_link"/>
+      <origin xyz="0.152800 0.000000 0.000000" rpy="3.141593 -0.000000 -1.570796"/>
+      <axis xyz="-0.000000 1.000000 -0.000000"/>
+      <limit lower="-2.356194" upper="2.356194" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_wrs_fex_joint" type="revolute">
+      <parent link="${prefix}left_wrs_upp_link"/>
+      <child link="${prefix}left_wrs_low_link"/>
+      <origin xyz="-0.019216 0.049400 -0.000018" rpy="1.570796 0.000000 0.000000"/>
+      <axis xyz="-1.000000 -0.000000 -0.000000"/>
+      <limit lower="-1.221730" upper="1.570796" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_wrs_plm_rigid" type="fixed">
+      <parent link="${prefix}left_wrs_low_link"/>
+      <child link="${prefix}left_plm_link"/>
+      <origin xyz="0.224900 0.011500 -0.077600" rpy="-1.570796 -0.000000 -3.141593"/>
+    </joint>
+
+    <joint name="${prefix}left_thb_mip_joint" type="revolute">
+      <parent link="${prefix}left_plm_link"/>
+      <child link="${prefix}left_thb_mip_link"/>
+      <origin xyz="0.248101 0.016701 -0.028655" rpy="2.425161 0.790617 -2.542583"/>
+      <axis xyz="0.999986 -0.004285 -0.003164"/>
+      <limit lower="0.000000" upper="1.308997" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_ind_mip_joint" type="revolute">
+      <parent link="${prefix}left_plm_link"/>
+      <child link="${prefix}left_ind_mip_link"/>
+      <origin xyz="0.229890 0.055645 0.010641" rpy="-1.729364 -0.000874 0.011550"/>
+      <axis xyz="-1.000000 0.000000 -0.000134"/>
+      <limit lower="-0.174533" upper="1.221730" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_mid_mip_joint" type="revolute">
+      <parent link="${prefix}left_plm_link"/>
+      <child link="${prefix}left_mid_mip_link"/>
+      <origin xyz="0.209568 0.051718 0.012467" rpy="-1.706846 0.009712 0.040933"/>
+      <axis xyz="-1.000000 0.000000 0.000000"/>
+      <limit lower="-0.523599" upper="0.872665" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_rng_mip_joint" type="revolute">
+      <parent link="${prefix}left_plm_link"/>
+      <child link="${prefix}left_rng_mip_link"/>
+      <origin xyz="0.189287 0.046333 0.012417" rpy="-1.581207 -0.067262 0.071990"/>
+      <axis xyz="-1.000000 0.000000 -0.000000"/>
+      <limit lower="-0.523599" upper="1.047198" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_pnk_mip_joint" type="revolute">
+      <parent link="${prefix}left_plm_link"/>
+      <child link="${prefix}left_pnk_mip_link"/>
+      <origin xyz="0.169705 0.037438 0.006938" rpy="-1.602054 -0.013855 0.054432"/>
+      <axis xyz="-0.999767 -0.021537 0.001727"/>
+      <limit lower="-0.174533" upper="1.221730" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_thb_ip_joint" type="revolute">
+      <parent link="${prefix}left_thb_mip_link"/>
+      <child link="${prefix}left_thb_ip_link"/>
+      <origin xyz="0.000999 0.002015 0.032236" rpy="-0.893943 -0.013324 -0.019213"/>
+      <axis xyz="-0.999727 -0.022418 -0.006632"/>
+      <limit lower="-0.785398" upper="0.698132" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_ind_pip_joint" type="revolute">
+      <parent link="${prefix}left_ind_mip_link"/>
+      <child link="${prefix}left_ind_pip_link"/>
+      <origin xyz="-0.000766 -0.000533 0.041056" rpy="-2.599677 0.025677 -3.029554"/>
+      <axis xyz="-1.000000 -0.000495 -0.000829"/>
+      <limit lower="-0.698132" upper="1.047198" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_mid_pip_joint" type="revolute">
+      <parent link="${prefix}left_mid_mip_link"/>
+      <child link="${prefix}left_mid_pip_link"/>
+      <origin xyz="0.000004 -0.001173 0.043377" rpy="-0.278845 -0.000334 -0.000048"/>
+      <axis xyz="-1.000000 -0.000273 -0.000220"/>
+      <limit lower="-0.959931" upper="0.610865" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_rng_pip_joint" type="revolute">
+      <parent link="${prefix}left_rng_mip_link"/>
+      <child link="${prefix}left_rng_pip_link"/>
+      <origin xyz="0.001003 0.000397 0.041384" rpy="-1.012141 -0.022685 -0.041903"/>
+      <axis xyz="-0.998865 -0.041252 -0.023803"/>
+      <limit lower="-0.785398" upper="0.610865" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_pnk_pip_joint" type="revolute">
+      <parent link="${prefix}left_pnk_mip_link"/>
+      <child link="${prefix}left_pnk_pip_link"/>
+      <origin xyz="0.000300 0.000850 0.034246" rpy="-1.062805 -0.050744 -0.257635"/>
+      <axis xyz="-0.999417 -0.029916 -0.016475"/>
+      <limit lower="-0.872665" upper="0.698132" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_ind_dip_joint" type="revolute">
+      <parent link="${prefix}left_ind_pip_link"/>
+      <child link="${prefix}left_ind_dip_link"/>
+      <origin xyz="0.000009 0.000777 -0.024740" rpy="2.539852 -0.001118 3.141345"/>
+      <axis xyz="-1.000000 0.000497 -0.000831"/>
+      <limit lower="-0.872665" upper="0.698132" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_mid_dip_joint" type="revolute">
+      <parent link="${prefix}left_mid_pip_link"/>
+      <child link="${prefix}left_mid_dip_link"/>
+      <origin xyz="-0.000024 -0.001051 0.025982" rpy="-1.080867 0.026573 0.042173"/>
+      <axis xyz="-1.000000 0.000497 -0.000831"/>
+      <limit lower="-0.785398" upper="0.436332" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_rng_dip_joint" type="revolute">
+      <parent link="${prefix}left_rng_pip_link"/>
+      <child link="${prefix}left_rng_dip_link"/>
+      <origin xyz="-0.001004 -0.001011 0.025072" rpy="-0.534973 -0.000253 -0.009413"/>
+      <axis xyz="-0.999953 -0.008229 -0.005153"/>
+      <limit lower="-0.959931" upper="0.523599" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <joint name="${prefix}left_pnk_dip_joint" type="revolute">
+      <parent link="${prefix}left_pnk_pip_link"/>
+      <child link="${prefix}left_pnk_dip_link"/>
+      <origin xyz="-0.000529 -0.001276 0.018881" rpy="-0.611284 -0.000001 0.000001"/>
+      <axis xyz="-1.000000 -0.000000 0.000001"/>
+      <limit lower="-0.436332" upper="0.785398" effort="100.0" velocity="1.00"/>
+    </joint>
+
+    <!-- ROS 2 control: generated generic system -->
+    <ros2_control name="${prefix}left_arm_system" type="system">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+        <param name="cmd_topic">sim/left_arm_system/cmd</param>
+        <param name="state_topic">sim/left_arm_system/state</param>
+      </hardware>
+
+      <joint name="${prefix}left_elb_fex_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_fam_rot_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_ind_dip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_ind_mip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_ind_pip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_mid_dip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_mid_mip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_mid_pip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_pnk_dip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_pnk_mip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_pnk_pip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_rng_dip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_rng_mip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_rng_pip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_shd_aad_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_shd_fex_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_shd_rot_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_thb_ip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_thb_mip_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="${prefix}left_wrs_fex_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>

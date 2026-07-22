@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera_macro">
+
+  <xacro:macro name="camera" params="prefix">
+
+    <!-- Links -->
+    <link name="${prefix}camera_chest_oak_d_pro">
+      <inertial>
+        <origin xyz="0.042230 0.209100 0.002197" rpy="0 0 0"/>
+        <mass value="0.625794"/>
+        <inertia ixx="2.686688e-02" ixy="1.815290e-04" ixz="4.039207e-06"
+                 iyy="5.467135e-04" iyz="-4.667067e-04" izz="2.727404e-02"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/camera/camera_chest_oak_d_pro.dae" scale="1 1 1"/>
+        </geometry>
+        <material name="Steel"/>
+      </visual>
+      <collision>
+        <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://harper_description/meshes/camera/camera_chest_oak_d_pro_collision.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </xacro:macro>
+
+</robot>

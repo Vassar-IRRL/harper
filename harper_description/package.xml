@@ -3,10 +3,10 @@
 <package format="3">
   <name>harper_description</name>
   <version>0.1.0</version>
-  <description>Robot description for harper_arm, generated from Fusion 360</description>
+  <description>Robot description for harper, generated from Fusion 360</description>
 
-  <maintainer email="todo@todo.com">TODO</maintainer>
-  <license>TODO</license>
+  <maintainer email="spaudel@vassar.edu">Samip Paudel</maintainer>
+  <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

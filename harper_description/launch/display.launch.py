@@ -1,5 +1,5 @@
 """
-Launch file for harper_arm.
+Launch file for harper.
 
 Usage:
     ros2 launch harper_description display.launch.py
@@ -18,8 +18,9 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
     pkg_dir = get_package_share_directory('harper_description')
 
-    xacro_file = os.path.join(pkg_dir, 'urdf', 'harper_arm.urdf.xacro')
+    xacro_file = os.path.join(pkg_dir, 'urdf', 'harper.urdf.xacro')
     rviz_file = os.path.join(pkg_dir, 'rviz', 'display.rviz')
+    joint_state_file = os.path.join(pkg_dir, 'config', 'joint_state.yaml')
 
     ns = LaunchConfiguration('namespace')
     prefix = LaunchConfiguration('prefix')
@@ -42,7 +43,6 @@ def generate_launch_description():
         GroupAction([
             PushRosNamespace(ns),
 
-            # Robot state publisher
             Node(
                 package='robot_state_publisher',
                 executable='robot_state_publisher',
@@ -51,15 +51,15 @@ def generate_launch_description():
                 output='screen',
             ),
 
-            # Joint state publisher GUI (sliders for movable joints)
+            # Sliders for revolute/prismatic joints (owns /joint_states)
             Node(
                 package='joint_state_publisher_gui',
                 executable='joint_state_publisher_gui',
                 name='joint_state_publisher_gui',
+                parameters=[joint_state_file],
                 output='screen',
             ),
 
-            # RViz2
             Node(
                 package='rviz2',
                 executable='rviz2',

@@ -19,11 +19,11 @@
   # Command topic: /position_controller/commands
   position_controller:
     ros__parameters:
-      joints: [elbow_flexion_joint, forearm_rotation_joint, shoulder_abduction_joint, shoulder_flexion_joint, shoulder_rotation_joint]
+      joints: [left_elb_fex_joint, left_fam_rot_joint, left_ind_dip_joint, left_ind_mip_joint, left_ind_pip_joint, left_mid_dip_joint, left_mid_mip_joint, left_mid_pip_joint, left_pnk_dip_joint, left_pnk_mip_joint, left_pnk_pip_joint, left_rng_dip_joint, left_rng_mip_joint, left_rng_pip_joint, left_shd_aad_joint, left_shd_fex_joint, left_shd_rot_joint, left_thb_ip_joint, left_thb_mip_joint, left_wrs_fex_joint, right_elb_fex_joint, right_fam_rot_joint, right_ind_dip_joint, right_ind_mip_joint, right_ind_pip_joint, right_mid_dip_joint, right_mid_mip_joint, right_mid_pip_joint, right_pnk_dip_joint, right_pnk_mip_joint, right_pnk_pip_joint, right_rng_dip_joint, right_rng_mip_joint, right_rng_pip_joint, right_shd_aad_joint, right_shd_fex_joint, right_shd_rot_joint, right_thb_ip_joint, right_thb_mip_joint, right_wrist_fex_joint]
       interface_name: position
 
   # Command topic: /velocity_controller/commands
   velocity_controller:
     ros__parameters:
-      joints: [elbow_flexion_joint, forearm_rotation_joint, shoulder_abduction_joint, shoulder_flexion_joint, shoulder_rotation_joint]
+      joints: [left_elb_fex_joint, left_fam_rot_joint, left_ind_dip_joint, left_ind_mip_joint, left_ind_pip_joint, left_mid_dip_joint, left_mid_mip_joint, left_mid_pip_joint, left_pnk_dip_joint, left_pnk_mip_joint, left_pnk_pip_joint, left_rng_dip_joint, left_rng_mip_joint, left_rng_pip_joint, left_shd_aad_joint, left_shd_fex_joint, left_shd_rot_joint, left_thb_ip_joint, left_thb_mip_joint, left_wrs_fex_joint, right_elb_fex_joint, right_fam_rot_joint, right_ind_dip_joint, right_ind_mip_joint, right_ind_pip_joint, right_mid_dip_joint, right_mid_mip_joint, right_mid_pip_joint, right_pnk_dip_joint, right_pnk_mip_joint, right_pnk_pip_joint, right_rng_dip_joint, right_rng_mip_joint, right_rng_pip_joint, right_shd_aad_joint, right_shd_fex_joint, right_shd_rot_joint, right_thb_ip_joint, right_thb_mip_joint, right_wrist_fex_joint]
       interface_name: velocity

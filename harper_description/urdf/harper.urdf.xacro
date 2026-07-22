@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="harper">
+
+  <!-- Materials (shared across all assemblies) -->
+  <material name="Aluminum">
+    <color rgba="0.961 0.961 0.965 1.0"/>
+  </material>
+  <material name="Elegoo_PAHT_CF">
+    <color rgba="0.247 0.247 0.247 1.0"/>
+  </material>
+  <material name="Steel">
+    <color rgba="0.627 0.627 0.627 1.0"/>
+  </material>
+
+  <!-- Assembly includes -->
+  <xacro:include filename="$(find harper_description)/urdf/assemblies/left_arm.urdf.xacro"/>
+  <xacro:include filename="$(find harper_description)/urdf/assemblies/camera.urdf.xacro"/>
+  <xacro:include filename="$(find harper_description)/urdf/assemblies/right_arm.urdf.xacro"/>
+  <xacro:include filename="$(find harper_description)/urdf/assemblies/harper.urdf.xacro"/>
+
+  <!-- Instantiate assemblies -->
+  <xacro:left_arm prefix=""/>
+  <xacro:camera prefix=""/>
+  <xacro:right_arm prefix=""/>
+  <xacro:harper prefix=""/>
+
+  <!-- Mount joints (cross-assembly connections) -->
+  <!-- These define how assemblies connect to each other. -->
+  <!-- When swapping a dummy assembly with a real part, -->
+  <!-- update the include + macro call above, and adjust -->
+  <!-- parent/child link names in the mount joint below. -->
+
+  <joint name="leftarm_torso_rigid" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_shd_fex_link"/>
+    <origin xyz="0.287789 0.021350 0.010160" rpy="0.000000 -0.000000 1.570796"/>
+  </joint>
+
+  <joint name="chestcam_torso_rigid" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_chest_oak_d_pro"/>
+    <origin xyz="0.108838 0.054593 -0.207242" rpy="1.570796 -0.000000 0.000000"/>
+  </joint>
+
+  <joint name="rightarm_torso_rigid" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_shd_fex_link"/>
+    <origin xyz="0.012211 0.021350 0.010160" rpy="3.141593 -0.000000 1.570796"/>
+  </joint>
+
+</robot>
