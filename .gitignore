@@ -1,6 +1,10 @@
 build/
 install/
 log/
+docs/build/
+harper_description/build/
+harper_description/install/
+harper_description/log/
 
 *.bag
 *.db3
