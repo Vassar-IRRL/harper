@@ -18,6 +18,7 @@
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/theme-mermaid": "3.10.1",
     "@easyops-cn/docusaurus-search-local": "^0.55.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
@@ -31,6 +32,11 @@
     "@docusaurus/types": "3.10.1",
     "@types/react": "^19.0.0",
     "typescript": "~6.0.2"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.5",
+    "uuid": "^11.1.1",
+    "minimatch": "^10.2.5"
   },
   "browserslist": {
     "production": [

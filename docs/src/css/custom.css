@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Roboto:wght@400;500;700&family=Shippori+Antique+B1&display=swap');
 
 :root {
-  --ifm-color-primary: #3f51b5;
-  --ifm-color-primary-dark: #303f9f;
-  --ifm-color-primary-darker: #283593;
-  --ifm-color-primary-darkest: #1a237e;
-  --ifm-color-primary-light: #5c6bc0;
-  --ifm-color-primary-lighter: #7986cb;
-  --ifm-color-primary-lightest: #c5cae9;
+  --ifm-color-primary: #6b8fc4;
+  --ifm-color-primary-dark: #5a7eb3;
+  --ifm-color-primary-darker: #4f73a8;
+  --ifm-color-primary-darkest: #3d5c8a;
+  --ifm-color-primary-light: #7f9fd0;
+  --ifm-color-primary-lighter: #96afd9;
+  --ifm-color-primary-lightest: #c5d4eb;
 
   --ifm-background-color: #fafafa;
   --ifm-background-surface-color: #ffffff;
@@ -15,30 +15,30 @@
   --ifm-font-color-secondary: #616161;
 
   --ifm-font-family-base: 'Roboto', system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace: 'Roboto Mono', ui-monospace, monospace;
+  --ifm-heading-font-family: 'Shippori Antique B1', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, monospace;
   --ifm-code-font-size: 95%;
   --ifm-global-border-radius: 4px;
 
-  --ifm-navbar-background-color: #3f51b5;
+  --ifm-navbar-background-color: #4f73a8;
   --ifm-navbar-link-color: #ffffff;
-  --ifm-navbar-link-hover-color: #e8eaf6;
+  --ifm-navbar-link-hover-color: #e8eef7;
   --ifm-navbar-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-  --ifm-footer-background-color: #263238;
-  --ifm-link-color: #303f9f;
-  --ifm-menu-color-active: #3f51b5;
+  --ifm-link-color: #4f73a8;
+  --ifm-menu-color-active: #6b8fc4;
 
-  --docusaurus-highlighted-code-line-bg: rgba(63, 81, 181, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(150, 175, 217, 0.12);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #7986cb;
-  --ifm-color-primary-dark: #5c6bc0;
-  --ifm-color-primary-darker: #3f51b5;
-  --ifm-color-primary-darkest: #3949ab;
-  --ifm-color-primary-light: #9fa8da;
-  --ifm-color-primary-lighter: #c5cae9;
-  --ifm-color-primary-lightest: #e8eaf6;
+  --ifm-color-primary: #96afd9;
+  --ifm-color-primary-dark: #7f9fd0;
+  --ifm-color-primary-darker: #6b8fc4;
+  --ifm-color-primary-darkest: #4f73a8;
+  --ifm-color-primary-light: #aec2e2;
+  --ifm-color-primary-lighter: #c5d4eb;
+  --ifm-color-primary-lightest: #e8eef7;
 
   --ifm-background-color: #121212;
   --ifm-background-surface-color: #1e1e1e;
@@ -47,18 +47,18 @@
 
   --ifm-navbar-background-color: #1e1e1e;
   --ifm-navbar-link-color: #e0e0e0;
-  --ifm-navbar-link-hover-color: #9fa8da;
+  --ifm-navbar-link-hover-color: #96afd9;
   --ifm-navbar-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 
-  --ifm-footer-background-color: #0d1117;
-  --ifm-link-color: #9fa8da;
-  --ifm-menu-color-active: #7986cb;
+  --ifm-link-color: #96afd9;
+  --ifm-menu-color-active: #96afd9;
 
-  --docusaurus-highlighted-code-line-bg: rgba(121, 134, 203, 0.15);
+  --docusaurus-highlighted-code-line-bg: rgba(150, 175, 217, 0.15);
 }
 
 .navbar__title {
   color: #ffffff;
+  font-family: var(--ifm-heading-font-family);
   font-weight: 500;
 }
 
@@ -75,22 +75,28 @@
 }
 
 .button--primary {
-  background-color: #3f51b5;
-  border-color: #3f51b5;
+  background-color: #6b8fc4;
+  border-color: #6b8fc4;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 1px 5px rgba(0, 0, 0, 0.12);
 }
 
 .button--primary:hover {
-  background-color: #303f9f;
-  border-color: #303f9f;
+  background-color: #4f73a8;
+  border-color: #4f73a8;
 }
 
 [data-theme='dark'] .button--primary {
-  background-color: #3f51b5;
-  border-color: #3f51b5;
+  background-color: #96afd9;
+  border-color: #96afd9;
+  color: #121212;
 }
 
 [data-theme='dark'] .button--primary:hover {
-  background-color: #5c6bc0;
-  border-color: #5c6bc0;
+  background-color: #aec2e2;
+  border-color: #aec2e2;
+  color: #121212;
+}
+
+.theme-doc-card-icon {
+  display: none;
 }
