@@ -1243,7 +1243,7 @@
     <limit lower="-1.221730" upper="1.570796" effort="100.0" velocity="1.00"/>
   </joint>
 
-  <joint name="right_wrist_fex_joint" type="revolute">
+  <joint name="right_wrs_fex_joint" type="revolute">
     <parent link="right_wrs_upp_link"/>
     <child link="right_wrs_low_link"/>
     <origin xyz="-0.019216 0.049400 0.000018" rpy="-1.570796 -0.000000 -0.000000"/>
@@ -1846,7 +1846,7 @@
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="right_wrist_fex_joint">
+    <joint name="right_wrs_fex_joint">
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <state_interface name="position">

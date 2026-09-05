@@ -1,0 +1,107 @@
+# HARPER Dynamixel Bus Configuration
+#
+# The Bus configuration is as follows:
+#   buses.left  -> /dev/ttyUSB0  (IDs 1-11)
+#   buses.right -> /dev/ttyUSB1  (IDs 100-110)
+#
+# Baud: 4000000 (4 Mbps). Servo EEPROM Baud Rate must already be index 6
+# (4 Mbps) or port open / Sync I/O will fail. Reconfigure motors once with
+# Dynamixel Wizard if they still ship at 57600/115200.
+#
+# Safety defaults:
+#   readonly: true          -> no Goal Position / torque writes
+#   enabled_joint_groups: [] -> no joints are write-enabled
+#
+# For motion, set readonly: false and enable a group, e.g.:
+#   enabled_joint_groups: [left_wrist]
+#   enabled_joint_groups: [all]
+#
+# Profile Velocity / Acceleration (Protocol 2.0 addr 112 / 108):
+#   profile_velocity:     0.229 rev/min per count
+#   profile_acceleration: 214.577 rev/min^2 per count
+# Non-zero values produce a trapezoidal (or triangular) servo-side profile.
+#
+# Performance path:
+#   Return Delay Time=0, Indirect Address packing, GroupFastSyncRead,
+#   long-lived per-bus I/O worker threads with double-buffered frames.
+################################################################################
+dynamixel:
+  readonly: true
+  limit_policy:
+    clamp: true
+  enabled_joint_groups: []
+  defaults:
+    profile_velocity: 1000
+    profile_acceleration: 10
+    # Omit position_min/max to use ±π defaults. Set numeric limits after calibration.
+    # direction / zero_offset on each joint must match measured hardware zeros for sim2real.
+  joint_groups:
+    left_arm:
+      - left_shd_fex_joint
+      - left_shd_aad_joint
+      - left_shd_rot_joint
+      - left_elb_fex_joint
+      - left_fam_rot_joint
+      - left_wrs_fex_joint
+      - left_thb_mip_joint
+      - left_ind_mip_joint
+      - left_mid_mip_joint
+      - left_rng_mip_joint
+      - left_pnk_mip_joint
+    right_arm:
+      - right_shd_fex_joint
+      - right_shd_aad_joint
+      - right_shd_rot_joint
+      - right_elb_fex_joint
+      - right_fam_rot_joint
+      - right_wrs_fex_joint
+      - right_thb_mip_joint
+      - right_ind_mip_joint
+      - right_mid_mip_joint
+      - right_rng_mip_joint
+      - right_pnk_mip_joint
+    left_wrist:
+      - left_wrs_fex_joint
+    right_wrist:
+      - right_wrs_fex_joint
+    left_forearm:
+      - left_elb_fex_joint
+      - left_fam_rot_joint
+      - left_wrs_fex_joint
+    right_forearm:
+      - right_elb_fex_joint
+      - right_fam_rot_joint
+      - right_wrs_fex_joint
+  buses:
+    left:
+      port: /dev/ttyUSB0
+      baud_rate: 4000000
+      protocol_version: 2.0
+      joints:
+        left_shd_fex_joint: {id: 1, model: XM540-W270-T, direction: 1, zero_offset: 0.0}
+        left_shd_aad_joint: {id: 2, model: XM540-W270-T, direction: 1, zero_offset: 0.0}
+        left_shd_rot_joint: {id: 3, model: XM430-W350-T, direction: 1, zero_offset: 0.0}
+        left_elb_fex_joint: {id: 4, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        left_fam_rot_joint: {id: 5, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        left_wrs_fex_joint: {id: 6, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        left_thb_mip_joint: {id: 7, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        left_ind_mip_joint: {id: 8, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        left_mid_mip_joint: {id: 9, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        left_rng_mip_joint: {id: 10, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        left_pnk_mip_joint: {id: 11, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+    right:
+      port: /dev/ttyUSB1
+      baud_rate: 4000000
+      protocol_version: 2.0
+      joints:
+        right_shd_fex_joint: {id: 100, model: XM540-W270-T, direction: 1, zero_offset: 0.0}
+        right_shd_aad_joint: {id: 101, model: XM540-W270-T, direction: 1, zero_offset: 0.0}
+        right_shd_rot_joint: {id: 102, model: XM430-W350-T, direction: 1, zero_offset: 0.0}
+        right_elb_fex_joint: {id: 103, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        right_fam_rot_joint: {id: 104, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        right_wrs_fex_joint: {id: 105, model: XL430-W250-T, direction: 1, zero_offset: 0.0}
+        right_thb_mip_joint: {id: 106, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        right_ind_mip_joint: {id: 107, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        right_mid_mip_joint: {id: 108, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        right_rng_mip_joint: {id: 109, model: XC330-M288-T, direction: 1, zero_offset: 0.0}
+        right_pnk_mip_joint: {id: 110, model: XC330-M288-T, direction: 1, zero_offset: 0.0}

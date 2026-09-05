@@ -585,7 +585,7 @@
       <limit lower="-2.356194" upper="2.356194" effort="100.0" velocity="1.00"/>
     </joint>
 
-    <joint name="${prefix}right_wrist_fex_joint" type="revolute">
+    <joint name="${prefix}right_wrs_fex_joint" type="revolute">
       <parent link="${prefix}right_wrs_upp_link"/>
       <child link="${prefix}right_wrs_low_link"/>
       <origin xyz="-0.019216 0.049400 0.000018" rpy="-1.570796 -0.000000 -0.000000"/>
@@ -645,6 +645,7 @@
       <origin xyz="-0.000004 0.000719 -0.031198" rpy="0.393186 0.000458 -0.000055"/>
       <axis xyz="1.000000 0.000244 0.000407"/>
       <limit lower="-1.047198" upper="0.349066" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_thb_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_ind_pip_joint" type="revolute">
@@ -653,6 +654,7 @@
       <origin xyz="-0.000468 -0.000492 -0.039826" rpy="2.773604 -0.001095 -2.987152"/>
       <axis xyz="-1.000000 -0.000495 0.000829"/>
       <limit lower="-0.872665" upper="0.523599" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_ind_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_mid_pip_joint" type="revolute">
@@ -661,6 +663,7 @@
       <origin xyz="-0.000223 0.001894 -0.046542" rpy="0.124374 0.000345 -0.000489"/>
       <axis xyz="-1.000000 -0.000273 0.000220"/>
       <limit lower="-0.959931" upper="0.523599" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_mid_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_rng_pip_joint" type="revolute">
@@ -669,6 +672,7 @@
       <origin xyz="-0.000093 -0.001829 -0.041993" rpy="0.292693 0.025746 -0.038387"/>
       <axis xyz="1.000000 -0.000000 0.000000"/>
       <limit lower="2.094395" upper="3.316126" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_rng_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_pnk_pip_joint" type="revolute">
@@ -677,6 +681,7 @@
       <origin xyz="0.000889 0.000130 -0.034094" rpy="1.021120 -0.077367 -0.027152"/>
       <axis xyz="-0.999913 0.011060 -0.007127"/>
       <limit lower="-0.698132" upper="0.872665" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_pnk_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_ind_dip_joint" type="revolute">
@@ -685,6 +690,7 @@
       <origin xyz="0.000008 0.000728 0.023636" rpy="-2.713830 0.000962 3.141485"/>
       <axis xyz="1.000000 -0.000497 -0.000831"/>
       <limit lower="-0.785398" upper="0.523599" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_ind_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_mid_dip_joint" type="revolute">
@@ -693,6 +699,7 @@
       <origin xyz="-0.000017 -0.000877 -0.027046" rpy="1.082281 -0.010429 0.015437"/>
       <axis xyz="0.999832 -0.016197 0.008554"/>
       <limit lower="-0.872665" upper="0.436332" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_mid_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_rng_dip_joint" type="revolute">
@@ -701,6 +708,7 @@
       <origin xyz="-0.000004 -0.000592 -0.025335" rpy="1.041129 0.000018 0.000011"/>
       <axis xyz="-1.000000 0.000265 0.000482"/>
       <limit lower="-0.523599" upper="0.872665" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_rng_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
     <joint name="${prefix}right_pnk_dip_joint" type="revolute">
@@ -709,197 +717,10 @@
       <origin xyz="-0.000004 0.000237 -0.018937" rpy="1.192406 0.014732 -0.022791"/>
       <axis xyz="-0.999632 -0.022709 0.014809"/>
       <limit lower="-0.436332" upper="0.959931" effort="100.0" velocity="1.00"/>
+      <mimic joint="${prefix}right_pnk_mip_joint" multiplier="1.0" offset="0.0"/>
     </joint>
 
-    <!-- ROS 2 control: generated generic system -->
-    <ros2_control name="${prefix}right_arm_system" type="system">
-      <hardware>
-        <plugin>mock_components/GenericSystem</plugin>
-        <param name="cmd_topic">sim/right_arm_system/cmd</param>
-        <param name="state_topic">sim/right_arm_system/state</param>
-      </hardware>
-
-      <joint name="${prefix}right_elb_fex_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_fam_rot_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_ind_dip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_ind_mip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_ind_pip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_mid_dip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_mid_mip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_mid_pip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_pnk_dip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_pnk_mip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_pnk_pip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_rng_dip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_rng_mip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_rng_pip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_shd_aad_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_shd_fex_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_shd_rot_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_thb_ip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_thb_mip_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-      <joint name="${prefix}right_wrist_fex_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-    </ros2_control>
+    <!-- ros2_control lives in urdf/harper_ros2_control.xacro (single dual-arm system). -->
 
   </xacro:macro>
 

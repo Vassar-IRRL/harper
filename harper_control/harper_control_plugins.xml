@@ -1,0 +1,12 @@
+<library path="harper_dynamixel_system">
+  <class
+    name="harper_control/HarperDynamixelSystem"
+    type="harper_control::HarperDynamixelSystem"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      HARPER dual-arm Dynamixel SystemInterface: Sync Read/Write on both
+      buses, metadata-driven telemetry/effort, position-mode profiles,
+      mimic state copy, and readonly-safe torque gating.
+    </description>
+  </class>
+</library>

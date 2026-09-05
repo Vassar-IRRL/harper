@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="harper_ros2_control_macros">
+  <!--
+    Shared ros2_control macros for HARPER.
+
+    Contract (sim2real):
+      - Actuated / lead joints: command position only; state position + velocity (+ effort).
+      - Passive finger joints: state-only; follow a lead via URDF <mimic> + plugin state copy.
+      - One SystemInterface owns both arms so mock / real / future sim share one swap point.
+  -->
+
+  <xacro:macro name="harper_actuated_joint" params="joint_name">
+    <joint name="${joint_name}">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- State-only joint used for passive finger DOFs that track a lead MIP joint. -->
+  <xacro:macro name="harper_mimic_state_joint" params="joint_name lead_joint_name">
+    <joint name="${joint_name}">
+      <param name="mimic">${lead_joint_name}</param>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- SimpleTransmission documents the 1:1 joint↔actuator map for lead joints. -->
+  <xacro:macro name="simple_position_transmission" params="joint_name">
+    <transmission name="${joint_name}_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${joint_name}_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+</robot>

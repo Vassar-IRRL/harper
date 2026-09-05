@@ -43,7 +43,7 @@ joint_state_publisher:
       right_shd_rot_joint: 0.0
       right_thb_ip_joint: 0.0
       right_thb_mip_joint: 0.0
-      right_wrist_fex_joint: 0.0
+      right_wrs_fex_joint: 0.0
 
     # Joints to publish
     source_list:
@@ -86,4 +86,4 @@ joint_state_publisher:
       - right_shd_rot_joint
       - right_thb_ip_joint
       - right_thb_mip_joint
-      - right_wrist_fex_joint
+      - right_wrs_fex_joint

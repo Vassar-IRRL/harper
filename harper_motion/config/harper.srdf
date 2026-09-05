@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Thin semantic description for HARPER MoveIt planning (6-DoF arms only). -->
+<robot name="harper">
+  <group name="left_arm">
+    <chain base_link="base_link" tip_link="left_plm_link"/>
+  </group>
+  <group name="right_arm">
+    <chain base_link="base_link" tip_link="right_plm_link"/>
+  </group>
+
+  <group_state name="home" group="left_arm">
+    <joint name="left_shd_fex_joint" value="0"/>
+    <joint name="left_shd_aad_joint" value="0"/>
+    <joint name="left_shd_rot_joint" value="0"/>
+    <joint name="left_elb_fex_joint" value="0"/>
+    <joint name="left_fam_rot_joint" value="0"/>
+    <joint name="left_wrs_fex_joint" value="0"/>
+  </group_state>
+  <group_state name="home" group="right_arm">
+    <joint name="right_shd_fex_joint" value="0"/>
+    <joint name="right_shd_aad_joint" value="0"/>
+    <joint name="right_shd_rot_joint" value="0"/>
+    <joint name="right_elb_fex_joint" value="0"/>
+    <joint name="right_fam_rot_joint" value="0"/>
+    <joint name="right_wrs_fex_joint" value="0"/>
+  </group_state>
+
+  <end_effector name="left_ee" parent_link="left_plm_link" group="left_arm"/>
+  <end_effector name="right_ee" parent_link="right_plm_link" group="right_arm"/>
+
+  <!-- Adjacent / always-touching pairs along each arm chain. Expand later. -->
+  <disable_collisions link1="base_link" link2="left_shd_fex_link" reason="Adjacent"/>
+  <disable_collisions link1="base_link" link2="right_shd_fex_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shd_fex_link" link2="left_shd_ubk_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shd_ubk_link" link2="left_shd_aad_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shd_aad_link" link2="left_shd_rot_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shd_rot_link" link2="left_elb_upp_link" reason="Adjacent"/>
+  <disable_collisions link1="left_elb_upp_link" link2="left_elb_low_link" reason="Adjacent"/>
+  <disable_collisions link1="left_elb_low_link" link2="left_fam_rot_link" reason="Adjacent"/>
+  <disable_collisions link1="left_fam_rot_link" link2="left_wrs_upp_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrs_upp_link" link2="left_wrs_low_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrs_low_link" link2="left_plm_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shd_fex_link" link2="right_shd_ubk_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shd_ubk_link" link2="right_shd_aad_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shd_aad_link" link2="right_shd_rot_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shd_rot_link" link2="right_elb_upp_link" reason="Adjacent"/>
+  <disable_collisions link1="right_elb_upp_link" link2="right_elb_low_link" reason="Adjacent"/>
+  <disable_collisions link1="right_elb_low_link" link2="right_fam_rot_link" reason="Adjacent"/>
+  <disable_collisions link1="right_fam_rot_link" link2="right_wrs_upp_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrs_upp_link" link2="right_wrs_low_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrs_low_link" link2="right_plm_link" reason="Adjacent"/>
+</robot>

@@ -3,10 +3,10 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'HARPER Project',
+  title: 'HARPER',
   tagline:
     'Humanoid Autonomous Robotic Platform for Experimental Research',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/harper.png',
 
   url: 'https://paudelsamip.com.np',
   baseUrl: '/harper/',
@@ -16,9 +16,31 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  markdown: {
+    mermaid: true,
   },
 
   presets: [
@@ -38,6 +60,7 @@ const config: Config = {
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -55,20 +78,27 @@ const config: Config = {
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     navbar: {
-      title: 'HARPER',
       items: [
         {
           to: '/',
           label: 'Home',
           position: 'left',
-          activeBaseRegex: '^/$',
+          activeBaseRegex: '^/harper/?$',
         },
         {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
+        },
+        {
+          to: '/people',
+          label: 'People',
+          position: 'left',
         },
         {
           href: 'https://github.com/Vassar-IRRL/harper',
@@ -80,10 +110,6 @@ const config: Config = {
           position: 'right',
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} HARPER Project contributors. Licensed under the <a href="https://github.com/Vassar-IRRL/harper/blob/main/LICENSE">Apache License 2.0</a>.`,
     },
     prism: {
       theme: prismThemes.dracula,

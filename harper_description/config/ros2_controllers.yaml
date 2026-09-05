@@ -1,6 +1,11 @@
-# Generated ros2_control controllers
-# Publishes joint states on: /joint_states
-# Command topics use: /<controller_name>/commands
+# Dual-arm joint trajectory controllers for MoveIt / harper_control bringup.
+#
+# Sim2real contract:
+#   - command: position (rad)
+#   - state: position + velocity
+#   - update_rate 100 Hz — match this in simulation backends
+#   - open_loop_control false — interpolate from measured joint state
+
 /**:
   controller_manager:
     ros__parameters:
@@ -8,22 +13,82 @@
 
       joint_state_broadcaster:
         type: joint_state_broadcaster/JointStateBroadcaster
-      position_controller:
-        type: forward_command_controller/ForwardCommandController
-      velocity_controller:
-        type: forward_command_controller/ForwardCommandController
+      left_arm_controller:
+        type: joint_trajectory_controller/JointTrajectoryController
+      right_arm_controller:
+        type: joint_trajectory_controller/JointTrajectoryController
 
   joint_state_broadcaster:
     ros__parameters: {}
 
-  # Command topic: /position_controller/commands
-  position_controller:
+  left_arm_controller:
     ros__parameters:
-      joints: [left_elb_fex_joint, left_fam_rot_joint, left_ind_dip_joint, left_ind_mip_joint, left_ind_pip_joint, left_mid_dip_joint, left_mid_mip_joint, left_mid_pip_joint, left_pnk_dip_joint, left_pnk_mip_joint, left_pnk_pip_joint, left_rng_dip_joint, left_rng_mip_joint, left_rng_pip_joint, left_shd_aad_joint, left_shd_fex_joint, left_shd_rot_joint, left_thb_ip_joint, left_thb_mip_joint, left_wrs_fex_joint, right_elb_fex_joint, right_fam_rot_joint, right_ind_dip_joint, right_ind_mip_joint, right_ind_pip_joint, right_mid_dip_joint, right_mid_mip_joint, right_mid_pip_joint, right_pnk_dip_joint, right_pnk_mip_joint, right_pnk_pip_joint, right_rng_dip_joint, right_rng_mip_joint, right_rng_pip_joint, right_shd_aad_joint, right_shd_fex_joint, right_shd_rot_joint, right_thb_ip_joint, right_thb_mip_joint, right_wrist_fex_joint]
-      interface_name: position
+      joints:
+        - left_shd_fex_joint
+        - left_shd_aad_joint
+        - left_shd_rot_joint
+        - left_elb_fex_joint
+        - left_fam_rot_joint
+        - left_wrs_fex_joint
+        - left_thb_mip_joint
+        - left_ind_mip_joint
+        - left_mid_mip_joint
+        - left_rng_mip_joint
+        - left_pnk_mip_joint
+      command_interfaces:
+        - position
+      state_interfaces:
+        - position
+        - velocity
+      allow_partial_joints_goal: true
+      open_loop_control: false
+      constraints:
+        goal_time: 0.5
+        stopped_velocity_tolerance: 0.05
+        left_shd_fex_joint: {trajectory: 0.2, goal: 0.05}
+        left_shd_aad_joint: {trajectory: 0.2, goal: 0.05}
+        left_shd_rot_joint: {trajectory: 0.2, goal: 0.05}
+        left_elb_fex_joint: {trajectory: 0.2, goal: 0.05}
+        left_fam_rot_joint: {trajectory: 0.2, goal: 0.05}
+        left_wrs_fex_joint: {trajectory: 0.2, goal: 0.05}
+        left_thb_mip_joint: {trajectory: 0.3, goal: 0.08}
+        left_ind_mip_joint: {trajectory: 0.3, goal: 0.08}
+        left_mid_mip_joint: {trajectory: 0.3, goal: 0.08}
+        left_rng_mip_joint: {trajectory: 0.3, goal: 0.08}
+        left_pnk_mip_joint: {trajectory: 0.3, goal: 0.08}
 
-  # Command topic: /velocity_controller/commands
-  velocity_controller:
+  right_arm_controller:
     ros__parameters:
-      joints: [left_elb_fex_joint, left_fam_rot_joint, left_ind_dip_joint, left_ind_mip_joint, left_ind_pip_joint, left_mid_dip_joint, left_mid_mip_joint, left_mid_pip_joint, left_pnk_dip_joint, left_pnk_mip_joint, left_pnk_pip_joint, left_rng_dip_joint, left_rng_mip_joint, left_rng_pip_joint, left_shd_aad_joint, left_shd_fex_joint, left_shd_rot_joint, left_thb_ip_joint, left_thb_mip_joint, left_wrs_fex_joint, right_elb_fex_joint, right_fam_rot_joint, right_ind_dip_joint, right_ind_mip_joint, right_ind_pip_joint, right_mid_dip_joint, right_mid_mip_joint, right_mid_pip_joint, right_pnk_dip_joint, right_pnk_mip_joint, right_pnk_pip_joint, right_rng_dip_joint, right_rng_mip_joint, right_rng_pip_joint, right_shd_aad_joint, right_shd_fex_joint, right_shd_rot_joint, right_thb_ip_joint, right_thb_mip_joint, right_wrist_fex_joint]
-      interface_name: velocity
+      joints:
+        - right_shd_fex_joint
+        - right_shd_aad_joint
+        - right_shd_rot_joint
+        - right_elb_fex_joint
+        - right_fam_rot_joint
+        - right_wrs_fex_joint
+        - right_thb_mip_joint
+        - right_ind_mip_joint
+        - right_mid_mip_joint
+        - right_rng_mip_joint
+        - right_pnk_mip_joint
+      command_interfaces:
+        - position
+      state_interfaces:
+        - position
+        - velocity
+      allow_partial_joints_goal: true
+      open_loop_control: false
+      constraints:
+        goal_time: 0.5
+        stopped_velocity_tolerance: 0.05
+        right_shd_fex_joint: {trajectory: 0.2, goal: 0.05}
+        right_shd_aad_joint: {trajectory: 0.2, goal: 0.05}
+        right_shd_rot_joint: {trajectory: 0.2, goal: 0.05}
+        right_elb_fex_joint: {trajectory: 0.2, goal: 0.05}
+        right_fam_rot_joint: {trajectory: 0.2, goal: 0.05}
+        right_wrs_fex_joint: {trajectory: 0.2, goal: 0.05}
+        right_thb_mip_joint: {trajectory: 0.3, goal: 0.08}
+        right_ind_mip_joint: {trajectory: 0.3, goal: 0.08}
+        right_mid_mip_joint: {trajectory: 0.3, goal: 0.08}
+        right_rng_mip_joint: {trajectory: 0.3, goal: 0.08}
+        right_pnk_mip_joint: {trajectory: 0.3, goal: 0.08}

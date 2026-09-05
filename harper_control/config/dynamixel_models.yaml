@@ -1,0 +1,153 @@
+# HARPER Dynamixel Models Configuration
+#
+# Control-table metadata from official ROBOTIS e-Manuals for every model
+# referenced in dynamixel_bus.yaml (per-bus joints under dynamixel.buses).
+#
+# Sources:
+# - https://emanual.robotis.com/docs/en/dxl/x/xm540-w270/
+# - https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/
+# - https://emanual.robotis.com/docs/en/dxl/x/xl430-w250/
+# - https://emanual.robotis.com/docs/en/dxl/x/xc330-m288/
+#
+# Position resolution is pulses per revolution (12-bit encoder).
+# Velocity resolution is the Present Velocity unit in rev/min.
+# Register addresses are Protocol 2.0 control-table addresses.
+#
+# profile registers drive the servo-side trapezoidal generator:
+#   Profile Acceleration @ 108, Profile Velocity @ 112
+#
+# effort_conversion:
+#   current_to_nm (XM/XC):
+#     effort_Nm = present_current * current_unit_a * (stall_torque_nm / stall_current_a)
+#   load_to_nm (XL430 only; no Present Current):
+#     effort_Nm = (present_load * load_unit / 100.0) * stall_torque_nm
+# Stall values are taken at each model's recommended supply voltage.
+
+dynamixel_models:
+  XM540-W270-T:
+    model_name: XM540-W270-T
+    model_number: 1120
+    protocol_version: 2.0
+    position:
+      present_position: 132
+      goal_position: 116
+      resolution: 4096
+    velocity:
+      present_velocity: 128
+      resolution: 0.229
+    profile:
+      profile_acceleration: 108
+      profile_velocity: 112
+      velocity_unit: 0.229       # rev/min per count
+      acceleration_unit: 214.577 # rev/min^2 per count
+    telemetry:
+      dxl_current: true   # Present Current @ 126, unit 2.69 mA
+      dxl_pwm: true       # Present PWM @ 124
+      dxl_load: false
+      dxl_voltage: true   # Present Input Voltage @ 144, unit 0.1 V
+      dxl_temperature: true  # Present Temperature @ 146, unit 1 C
+      dxl_moving: true    # Moving @ 122
+      dxl_moving_status: true  # Moving Status @ 123
+      dxl_hardware_error_status: true  # Hardware Error Status @ 70
+    effort_conversion:
+      type: current_to_nm
+      present_current: 126
+      current_unit_a: 0.00269   # 2.69 mA per raw count
+      stall_torque_nm: 10.6     # at recommended 12.0 V
+      stall_current_a: 4.4      # at recommended 12.0 V
+
+  XM430-W350-T:
+    model_name: XM430-W350-T
+    model_number: 1020
+    protocol_version: 2.0
+    position:
+      present_position: 132
+      goal_position: 116
+      resolution: 4096
+    velocity:
+      present_velocity: 128
+      resolution: 0.229
+    profile:
+      profile_acceleration: 108
+      profile_velocity: 112
+      velocity_unit: 0.229
+      acceleration_unit: 214.577
+    telemetry:
+      dxl_current: true   # Present Current @ 126, unit 2.69 mA
+      dxl_pwm: true       # Present PWM @ 124
+      dxl_load: false
+      dxl_voltage: true   # Present Input Voltage @ 144, unit 0.1 V
+      dxl_temperature: true  # Present Temperature @ 146, unit 1 C
+      dxl_moving: true    # Moving @ 122
+      dxl_moving_status: true  # Moving Status @ 123
+      dxl_hardware_error_status: true  # Hardware Error Status @ 70
+    effort_conversion:
+      type: current_to_nm
+      present_current: 126
+      current_unit_a: 0.00269   # 2.69 mA per raw count
+      stall_torque_nm: 4.1      # at recommended 12.0 V
+      stall_current_a: 2.3      # at recommended 12.0 V
+
+  XL430-W250-T:
+    model_name: XL430-W250-T
+    model_number: 1060
+    protocol_version: 2.0
+    position:
+      present_position: 132
+      goal_position: 116
+      resolution: 4096
+    velocity:
+      present_velocity: 128
+      resolution: 0.229
+    profile:
+      profile_acceleration: 108
+      profile_velocity: 112
+      velocity_unit: 0.229
+      acceleration_unit: 214.577
+    telemetry:
+      # XL430 has Present Load at 126, not Present Current.
+      dxl_current: false
+      dxl_pwm: true       # Present PWM @ 124
+      dxl_load: true      # Present Load @ 126, unit 0.1 %
+      dxl_voltage: true   # Present Input Voltage @ 144, unit 0.1 V
+      dxl_temperature: true  # Present Temperature @ 146, unit 1 C
+      dxl_moving: true    # Moving @ 122
+      dxl_moving_status: true  # Moving Status @ 123
+      dxl_hardware_error_status: true  # Hardware Error Status @ 70
+    effort_conversion:
+      type: load_to_nm
+      present_load: 126
+      load_unit: 0.1          # % of stall torque per raw count
+      stall_torque_nm: 1.4    # at recommended 11.1 V
+
+  XC330-M288-T:
+    model_name: XC330-M288-T
+    model_number: 1240
+    protocol_version: 2.0
+    position:
+      present_position: 132
+      goal_position: 116
+      resolution: 4096
+    velocity:
+      present_velocity: 128
+      resolution: 0.229
+    profile:
+      profile_acceleration: 108
+      profile_velocity: 112
+      velocity_unit: 0.229
+      acceleration_unit: 214.577
+    telemetry:
+      dxl_current: true   # Present Current @ 126, unit 1.0 mA
+      dxl_pwm: true       # Present PWM @ 124, unit 0.113 %
+      dxl_load: false
+      dxl_voltage: true   # Present Input Voltage @ 144, unit 0.1 V
+      dxl_temperature: true  # Present Temperature @ 146, unit 1 C
+      dxl_moving: true    # Moving @ 122
+      dxl_moving_status: true  # Moving Status @ 123
+      dxl_hardware_error_status: true  # Hardware Error Status @ 70
+    effort_conversion:
+      type: current_to_nm
+      present_current: 126
+      current_unit_a: 0.001    # 1.0 mA per raw count
+      stall_torque_nm: 0.93    # at recommended 5.0 V
+      stall_current_a: 1.8     # at recommended 5.0 V

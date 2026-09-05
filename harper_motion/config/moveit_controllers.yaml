@@ -1,0 +1,39 @@
+# Map MoveIt trajectories onto harper_control joint trajectory controllers.
+# Planning groups are 6-DoF arms; JTCs should allow partial goals so fingers
+# stay unmanaged by MoveIt (allow_partial_joints_goal: true).
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  allowed_start_tolerance: 0.01
+  execution_duration_monitoring: true
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - left_arm_controller
+    - right_arm_controller
+
+  left_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - left_shd_fex_joint
+      - left_shd_aad_joint
+      - left_shd_rot_joint
+      - left_elb_fex_joint
+      - left_fam_rot_joint
+      - left_wrs_fex_joint
+
+  right_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - right_shd_fex_joint
+      - right_shd_aad_joint
+      - right_shd_rot_joint
+      - right_elb_fex_joint
+      - right_fam_rot_joint
+      - right_wrs_fex_joint

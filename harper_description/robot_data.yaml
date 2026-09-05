@@ -1641,7 +1641,7 @@ joints:
       upper: 1.308997
       effort: 100.0
       velocity: 1.00
-  right_wrist_fex_joint:
+  right_wrs_fex_joint:
     type: revolute
     parent: right_wrs_upp_link
     child: right_wrs_low_link

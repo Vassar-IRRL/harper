@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="harper">
 
+  <!--
+    Hardware swap point for mock / real / future sim backends.
+    harper_control/bringup.launch.py forwards these args into xacro.
+  -->
+  <xacro:arg name="hardware_plugin" default="mock_components/GenericSystem"/>
+  <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="bus_config" default=""/>
+  <xacro:arg name="models_config" default=""/>
+  <xacro:arg name="readonly" default="true"/>
+
   <!-- Materials (shared across all assemblies) -->
   <material name="Aluminum">
     <color rgba="0.961 0.961 0.965 1.0"/>
@@ -17,6 +27,7 @@
   <xacro:include filename="$(find harper_description)/urdf/assemblies/camera.urdf.xacro"/>
   <xacro:include filename="$(find harper_description)/urdf/assemblies/right_arm.urdf.xacro"/>
   <xacro:include filename="$(find harper_description)/urdf/assemblies/harper.urdf.xacro"/>
+  <xacro:include filename="$(find harper_description)/urdf/harper_ros2_control.xacro"/>
 
   <!-- Instantiate assemblies -->
   <xacro:left_arm prefix=""/>
@@ -25,11 +36,6 @@
   <xacro:harper prefix=""/>
 
   <!-- Mount joints (cross-assembly connections) -->
-  <!-- These define how assemblies connect to each other. -->
-  <!-- When swapping a dummy assembly with a real part, -->
-  <!-- update the include + macro call above, and adjust -->
-  <!-- parent/child link names in the mount joint below. -->
-
   <joint name="leftarm_torso_rigid" type="fixed">
     <parent link="base_link"/>
     <child link="left_shd_fex_link"/>
